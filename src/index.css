@@ -9,3 +9,6 @@ body{
 .my-container{
     @apply max-w-screen-lg mx-auto
 }
+.clear-flex{
+    @apply flex items-center justify-between gap-2
+}

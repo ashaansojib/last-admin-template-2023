@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.css'
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa'
 const Login = () => {
+    const [show, setShow] = useState(true);
+
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
-    } = useForm()
-
+    } = useForm();
     const onSubmit = (data) => console.log(data)
+    const handleCheck = () => {
+
+    }
     return (
         <div className='bg-[#DFE9EB] max-h-screen min-h-screen'>
             <div className='max-w-md mx-auto bg-white p-6'>
@@ -17,15 +22,31 @@ const Login = () => {
                 <span className='text-gray-600 text-sm'>Enter your email & password to login</span>
                 {/* login form  */}
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='space-y-2'>
+                    <div className='space-y-2 py-4'>
                         <p className='mt-2 text-slate-600'>Email Address</p>
-                        <input defaultValue="sojib123@gmail.com" {...register("email", {required: true})} className='inline-block p-2 bg-gray-100 text-sm w-full text-gray-500' />
-
+                        <input type='email' defaultValue="sojib123@gmail.com" {...register("email", { required: true })} className='input-field' />
                         <p className='mt-2 text-slate-600'>Password</p>
-                        <input defaultValue="admin123" {...register("password", { required: true })} className='inline-block p-2 bg-gray-100 text-sm w-full text-gray-500' />
+                        <input type='password' defaultValue="admin123" {...register("password", { required: true })} className='input-field' />
                     </div>
-                    <input type="submit" />
+                    <div className='login-middle'>
+                        <span onClick={() => !setShow(true)} className='clear-flex cursor-pointer'>
+                            <input type='checkbox' name="" id="" />
+                            Remember Password
+                        </span>
+                        <Link to="/forget-password">Forget Password</Link>
+                    </div>
+                    <input className='login-btn' type="submit" value="Login" />
                 </form>
+                {/* others account */}
+                <div className='pt-8'>
+                    <p className='text-gray-600'>Or Sign in with ---------------</p>
+                    <div className='py-3 flex justify-center items-center gap-4'>
+                        <button className='login-social'><FaFacebookF /></button>
+                        <button className='login-social'><FaGoogle /></button>
+                        <button className='login-social'><FaGithub /></button>
+                    </div>
+                <span className='text-gray-600 text-[16px]'>Don't Have Account? <Link to="/register" className='underline'>Create Account</Link></span>
+                </div>
             </div>
         </div>
     );
