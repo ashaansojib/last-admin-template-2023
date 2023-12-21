@@ -11,13 +11,15 @@ const Login = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        console.log(data)
+    }
     const handleCheck = () => {
 
     }
     return (
-        <div className='bg-[#DFE9EB] max-h-screen min-h-screen'>
-            <div className='max-w-md mx-auto bg-white p-6'>
+        <div className='bg-[#DFE9EB] max-h-screen min-h-screen relative flex justify-center items-center'>
+            <div className='max-w-screen-md md:min-w-[420px] mx-auto bg-white p-8'>
                 <p>Sign In</p>
                 <span className='text-gray-600 text-sm'>Enter your email & password to login</span>
                 {/* login form  */}
@@ -25,8 +27,11 @@ const Login = () => {
                     <div className='space-y-2 py-4'>
                         <p className='mt-2 text-slate-600'>Email Address</p>
                         <input type='email' defaultValue="sojib123@gmail.com" {...register("email", { required: true })} className='input-field' />
-                        <p className='mt-2 text-slate-600'>Password</p>
-                        <input type='password' defaultValue="admin123" {...register("password", { required: true })} className='input-field' />
+                        <div className='relative'>
+                            <p className='mt-2 text-slate-600'>Password</p>
+                            <input type='password' defaultValue="admin123" {...register("password", { required: true })} className='input-field' />
+                            <button className='p-[7px] text-sm text-gray-600 bg-slate-200 absolute top-7 right-0'>show</button>
+                        </div>
                     </div>
                     <div className='login-middle'>
                         <span onClick={() => !setShow(true)} className='clear-flex cursor-pointer'>
@@ -45,7 +50,7 @@ const Login = () => {
                         <button className='login-social'><FaGoogle /></button>
                         <button className='login-social'><FaGithub /></button>
                     </div>
-                <span className='text-gray-600 text-[16px]'>Don't Have Account? <Link to="/register" className='underline'>Create Account</Link></span>
+                    <span className='text-gray-600 text-[16px]'>Don't Have Account? <Link to="/register" className='underline'>Create Account</Link></span>
                 </div>
             </div>
         </div>
