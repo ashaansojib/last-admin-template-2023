@@ -18,8 +18,8 @@ const Login = () => {
 
     }
     return (
-        <div className='bg-[#DFE9EB] max-h-screen min-h-screen relative flex justify-center items-center'>
-            <div className='max-w-screen-md md:min-w-[420px] mx-auto bg-white p-8'>
+        <div className='bg-[#DFE9EB] md:max-h-screen md:min-h-screen md:flex justify-center items-center'>
+            <div className='bg-white p-8 min-w-[400px] mx-auto'>
                 <p>Sign In</p>
                 <span className='text-gray-600 text-sm'>Enter your email & password to login</span>
                 {/* login form  */}
