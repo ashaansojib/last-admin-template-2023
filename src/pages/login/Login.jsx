@@ -6,16 +6,9 @@ import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa'
 const Login = () => {
     const [show, setShow] = useState(true);
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const {register, handleSubmit, formState: { errors }} = useForm();
     const onSubmit = (data) => {
-        console.log(data)
-    }
-    const handleCheck = () => {
-
+        // console.log(data)
     }
     return (
         <div className='bg-[#DFE9EB] md:max-h-screen md:min-h-screen md:flex justify-center items-center'>
@@ -34,13 +27,14 @@ const Login = () => {
                         </div>
                     </div>
                     <div className='login-middle'>
-                        <span onClick={() => !setShow(true)} className='clear-flex cursor-pointer'>
+                        <span className='clear-flex cursor-pointer'>
                             <input type='checkbox' name="" id="" />
                             Remember Password
                         </span>
                         <Link to="/forget-password">Forget Password</Link>
                     </div>
-                    <input className='login-btn' type="submit" value="Login" />
+                    {/* <input className='login-btn' type="submit" value="Login" /> */}
+                    <Link className='login-btn' to="/dashboard">Login</Link>
                 </form>
                 {/* others account */}
                 <div className='pt-8'>
